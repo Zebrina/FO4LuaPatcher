@@ -94,7 +94,7 @@ void ForEachFormInvokeCallbacks(Lua* lua, LuaTable* global, LuaTable* callbacks,
 }
 
 void ProcessLuaScripts() {
-	Console_Print("Lua Patcher started.");
+	LUA_DEBUG_PRINT("Lua Patcher started.");
 
 	Lua lua;
 	LuaTable global = lua.GetGlobalEnvironment();
@@ -199,5 +199,5 @@ void ProcessLuaScripts() {
 
 	LuaForm::ClearCaches();
 
-	_MESSAGE("Lua Patcher finished.");
+	LUA_DEBUG_PRINT("Lua Patcher finished.");
 }
