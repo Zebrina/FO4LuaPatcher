@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="LuaScriptProcessor.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaForm.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaMiscObject.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaGame.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Exports.def" />
+    <None Include="Distributable\F4SE\Plugins\LuaPatcher\Core\patcher.lua">
+      <Filter>Lua\Core</Filter>
+    </None>
+    <None Include="Distributable\F4SE\Plugins\LuaPatcher\Scripts\ValdacilsItemSortingPatch.lua">
+      <Filter>Lua\Scripts</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Lua">
+      <UniqueIdentifier>{8ddfc5c1-85aa-444d-a8d1-29b6b07b1488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua\Core">
+      <UniqueIdentifier>{1dfa1c5b-cfe3-4846-b2b5-3fac521fa735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua\Scripts">
+      <UniqueIdentifier>{c889c45a-621b-4614-89e7-dd391f3b69c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LuaScriptProcessor.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaForm.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaMiscObject.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaGame.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
