@@ -28,7 +28,7 @@ BGSKeyword* GetKeywordByName(BSFixedString keyword) {
 			}
 		}
 		// Not found. Add nullptr to keyword cache.
-		_MESSAGE("Keyword %s not found.", keyword.c_str());
+		_MESSAGE("GetKeywordByName: Keyword %s not found.", keyword.c_str());
 		keywordCache->insert({ keyword, nullptr });
 		return nullptr;
 	}
