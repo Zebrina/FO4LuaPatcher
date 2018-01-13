@@ -447,9 +447,11 @@ VIS.NOTE.Quest = {
     [ 0x001B8FF9 ] = true,
 }
 VIS.NOTE.Settings = {
+    [ Game.GetFormFromFile("AkaInvisibleFurniture.esp", 0x00452E) ] = true,
     [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x0026FF) ] = true,
     [ Game.GetFormFromFile("DynamicInteriorFogRemoval.esp", 0x001733) ] = true,
     [ Game.GetFormFromFile("Marmo1233 - Immersive Settlers.esp", 0x00B001) ] = true,
+    [ Game.GetFormFromFile("th1nkEyebot.esp", 0x048BEE) ] = true,
     [ Game.GetFormFromFile("TrueStormsFO4.esm", 0x004BE6) ] = true,
     [ Game.GetFormFromFile("TrueStormsFO4.esm", 0x045F3D) ] = true,
 }
@@ -688,7 +690,7 @@ patcher:registerCallback(function(formId)
             elseif VIS.MISC.Passcard[formId] == true then
                 Form.SetName(formId, "|Passcard| " .. formName)
             elseif Form.HasKeywordString(formId, "BobbleheadKeyword") == true then
-                Form.SetName(formId, "[Perk: Bobblehead]" .. formName)
+                Form.SetName(formId, "[Perk: Bobblehead] " .. formName)
             elseif Form.HasKeywordString(formId, "DLC05FireworkShellKeyword") == true then
                 Form.SetName(formId, "(Ammo) " .. formName)
             elseif Form.HasKeywordString(formId, "ObjectTypeLooseMod") == true then
