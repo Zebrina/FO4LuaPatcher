@@ -114,7 +114,7 @@ void ProcessLuaScripts() {
 	global.Set("ENCH", (UInt8)FormType::kFormType_ENCH);
 	global.Set("SPEL", (UInt8)FormType::kFormType_SPEL);
 	global.Set("ARMO", (UInt8)FormType::kFormType_ARMO);
-	global.Set("INNR", (UInt8)FormType::kFormType_BOOK);
+	global.Set("BOOK", (UInt8)FormType::kFormType_BOOK);
 	global.Set("CONT", (UInt8)FormType::kFormType_CONT);
 	global.Set("DOOR", (UInt8)FormType::kFormType_DOOR);
 	global.Set("INGR", (UInt8)FormType::kFormType_INGR);
