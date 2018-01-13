@@ -68,6 +68,9 @@ void LuaForm::SetName(uint32_t formId, const char* newName) {
 		_MESSAGE("0x%.8x.SetName: %s -> %s", formId, fullName->name.c_str(), newName);
 		fullName->name = BSFixedString(newName);
 	}
+	else {
+		_MESSAGE("0x%.8x.SetName: Fail! Does not have TESFullName.  %s", formId, newName);
+	}
 }
 bool LuaForm::HasKeyword(uint32_t formId, uint32_t keywordFormId) {
 	BGSKeywordForm* keywords{ DYNAMIC_CAST(LookupFormByID(formId), TESForm, BGSKeywordForm) };
