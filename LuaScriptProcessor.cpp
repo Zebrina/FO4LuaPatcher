@@ -12,9 +12,54 @@
 
 #include <luacppinterface.h>
 
+#include "LuaActivator.h"
+#include "LuaActorBase.h"
+#include "LuaActorValue.h"
+#include "LuaAmmo.h"
+#include "LuaArmor.h"
+#include "LuaBook.h"
+#include "LuaClass.h"
+#include "LuaCombatStyle.h"
+#include "LuaComponent.h"
+#include "LuaConstructibleObject.h"
+#include "LuaContainer.h"
+#include "LuaDoor.h"
+#include "LuaEnchantment.h"
+#include "LuaEncounterZone.h"
+#include "LuaEquipSlot.h"
+#include "LuaExplosion.h"
+#include "LuaFaction.h"
+#include "LuaFlora.h"
 #include "LuaForm.h"
+#include "LuaFurniture.h"
 #include "LuaGame.h"
+#include "LuaGlobalVariable.h"
+#include "LuaHolotape.h"
+#include "LuaIngredient.h"
+#include "LuaKey.h"
+#include "LuaKeyword.h"
+#include "LuaLeveledActor.h"
+#include "LuaLeveledItem.h"
+#include "LuaLeveledSpell.h"
+#include "LuaLocation.h"
+#include "LuaMagicEffect.h"
+#include "LuaMessage.h"
 #include "LuaMiscObject.h"
+#include "LuaMovableStatic.h"
+#include "LuaObjectMod.h"
+#include "LuaOutfit.h"
+#include "LuaPackage.h"
+#include "LuaPerk.h"
+#include "LuaPotion.h"
+#include "LuaQuest.h"
+#include "LuaRace.h"
+#include "LuaSpell.h"
+#include "LuaSoulGem.h"
+#include "LuaStatic.h"
+#include "LuaTalkingActivator.h"
+#include "LuaTerminal.h"
+#include "LuaWeapon.h"
+#include "LuaWeather.h"
 
 using namespace std;
 
@@ -109,6 +154,7 @@ void ProcessLuaScripts() {
 	// FormType constants.
 	global.Set("CMPO", (UInt8)FormType::kFormType_CMPO);
 	global.Set("GLOB", (UInt8)FormType::kFormType_GLOB);
+	global.Set("CLAS", (UInt8)FormType::kFormType_CLAS);
 	global.Set("RACE", (UInt8)FormType::kFormType_RACE);
 	global.Set("MGEF", (UInt8)FormType::kFormType_MGEF);
 	global.Set("ENCH", (UInt8)FormType::kFormType_ENCH);
@@ -143,12 +189,54 @@ void ProcessLuaScripts() {
 	global.Set("INNR", (UInt8)FormType::kFormType_INNR);
 	_MESSAGE("Registered FormType constants.");
 
+	LuaActivator::RegisterFunctions(&lua, &global);
+	LuaActorBase::RegisterFunctions(&lua, &global);
+	LuaActorValue::RegisterFunctions(&lua, &global);
+	LuaAmmo::RegisterFunctions(&lua, &global);
+	LuaArmor::RegisterFunctions(&lua, &global);
+	LuaBook::RegisterFunctions(&lua, &global);
+	LuaClass::RegisterFunctions(&lua, &global);
+	LuaCombatStyle::RegisterFunctions(&lua, &global);
+	LuaComponent::RegisterFunctions(&lua, &global);
+	LuaConstructibleObject::RegisterFunctions(&lua, &global);
+	LuaContainer::RegisterFunctions(&lua, &global);
+	LuaDoor::RegisterFunctions(&lua, &global);
+	LuaEnchantment::RegisterFunctions(&lua, &global);
+	LuaEncounterZone::RegisterFunctions(&lua, &global);
+	LuaEquipSlot::RegisterFunctions(&lua, &global);
+	LuaExplosion::RegisterFunctions(&lua, &global);
+	LuaFaction::RegisterFunctions(&lua, &global);
+	LuaFlora::RegisterFunctions(&lua, &global);
 	LuaForm::RegisterFunctions(&lua, &global);
-	_MESSAGE("Registered Form functions.");
+	LuaFurniture::RegisterFunctions(&lua, &global);
 	LuaGame::RegisterFunctions(&lua, &global);
-	_MESSAGE("Registered Game functions.");
+	LuaGlobalVariable::RegisterFunctions(&lua, &global);
+	LuaHolotape::RegisterFunctions(&lua, &global);
+	LuaIngredient::RegisterFunctions(&lua, &global);
+	LuaKey::RegisterFunctions(&lua, &global);
+	LuaKeyword::RegisterFunctions(&lua, &global);
+	LuaLeveledActor::RegisterFunctions(&lua, &global);
+	LuaLeveledItem::RegisterFunctions(&lua, &global);
+	LuaLeveledSpell::RegisterFunctions(&lua, &global);
+	LuaLocation::RegisterFunctions(&lua, &global);
+	LuaMagicEffect::RegisterFunctions(&lua, &global);
+	LuaMessage::RegisterFunctions(&lua, &global);
 	LuaMiscObject::RegisterFunctions(&lua, &global);
-	_MESSAGE("Registered MiscObject functions.");
+	LuaMovableStatic::RegisterFunctions(&lua, &global);
+	LuaObjectMod::RegisterFunctions(&lua, &global);
+	LuaOutfit::RegisterFunctions(&lua, &global);
+	LuaPackage::RegisterFunctions(&lua, &global);
+	LuaPerk::RegisterFunctions(&lua, &global);
+	LuaPotion::RegisterFunctions(&lua, &global);
+	LuaQuest::RegisterFunctions(&lua, &global);
+	LuaRace::RegisterFunctions(&lua, &global);
+	LuaSpell::RegisterFunctions(&lua, &global);
+	LuaSoulGem::RegisterFunctions(&lua, &global);
+	LuaStatic::RegisterFunctions(&lua, &global);
+	LuaTalkingActivator::RegisterFunctions(&lua, &global);
+	LuaTerminal::RegisterFunctions(&lua, &global);
+	LuaWeapon::RegisterFunctions(&lua, &global);
+	LuaWeather::RegisterFunctions(&lua, &global);
 
 	ForEachFileInFolder("Data\\F4SE\\Plugins\\LuaPatcher\\Core\\", "*.lua", [&lua](const char* file) {
 		RunLuaFile(&lua, file);

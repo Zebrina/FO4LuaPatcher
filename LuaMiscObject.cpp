@@ -44,8 +44,12 @@ uint32_t LuaMiscObject::GetComponentsEx(uint32_t formId, LuaTable componentTable
 
 void LuaMiscObject::RegisterFunctions(Lua* lua, LuaTable* global) {
 	LuaTable table = lua->CreateTable();
+
 	table.Set("GetComponentCount", lua->CreateFunction<uint32_t(uint32_t)>(LuaMiscObject::GetComponentCount));
 	table.Set("GetComponents", lua->CreateFunction<uint32_t(uint32_t, LuaTable)>(LuaMiscObject::GetComponents));
 	//table.Set("GetComponentsEx", lua->CreateFunction<uint32_t(uint32_t, LuaTable)>(LuaMiscObject::GetComponentsEx));
+
 	global->Set("MiscObject", table);
+
+	_MESSAGE("Registered MiscObject functions.");
 }

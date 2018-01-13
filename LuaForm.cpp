@@ -81,6 +81,7 @@ bool LuaForm::HasKeyword(uint32_t formId, uint32_t keywordFormId) {
 			}
 		}
 	}
+	return false;
 }
 bool LuaForm::HasKeywordString(uint32_t formId, const char* keyword) {
 	BGSKeyword* keywordForm = GetKeywordByName(BSFixedString(keyword));
@@ -99,13 +100,17 @@ bool LuaForm::HasKeywordString(uint32_t formId, const char* keyword) {
 
 void LuaForm::RegisterFunctions(Lua* lua, LuaTable* global) {
 	LuaTable table = lua->CreateTable();
+
 	table.Set("GetType", lua->CreateFunction<uint8_t(uint32_t)>(LuaForm::GetType));
 	table.Set("IsPlayable", lua->CreateFunction<bool(uint32_t)>(LuaForm::IsPlayable));
 	table.Set("GetName", lua->CreateFunction<const char*(uint32_t)>(LuaForm::GetName));
 	table.Set("SetName", lua->CreateFunction<void(uint32_t, const char*)>(LuaForm::SetName));
 	table.Set("HasKeyword", lua->CreateFunction<bool(uint32_t, uint32_t)>(LuaForm::HasKeyword));
 	table.Set("HasKeywordString", lua->CreateFunction<bool(uint32_t, const char*)>(LuaForm::HasKeywordString));
+
 	global->Set("Form", table);
+
+	_MESSAGE("Registered Form functions.");
 }
 void LuaForm::ClearCaches() {
 	delete keywordCache;
