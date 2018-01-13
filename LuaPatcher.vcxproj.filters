@@ -17,22 +17,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Exports.def" />
-    <None Include="Distributable\F4SE\Plugins\LuaPatcher\Core\patcher.lua">
-      <Filter>Lua\Core</Filter>
-    </None>
-    <None Include="Distributable\F4SE\Plugins\LuaPatcher\Scripts\ValdacilsItemSortingPatch.lua">
-      <Filter>Lua\Scripts</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lua">
       <UniqueIdentifier>{8ddfc5c1-85aa-444d-a8d1-29b6b07b1488}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lua\Core">
-      <UniqueIdentifier>{1dfa1c5b-cfe3-4846-b2b5-3fac521fa735}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lua\Scripts">
-      <UniqueIdentifier>{c889c45a-621b-4614-89e7-dd391f3b69c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -157,8 +157,6 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Distributable\F4SE\Plugins\LuaPatcher\Core\patcher.lua" />
-    <None Include="Distributable\F4SE\Plugins\LuaPatcher\Scripts\ValdacilsItemSortingPatch.lua" />
     <None Include="Exports.def" />
   </ItemGroup>
   <ItemGroup>
