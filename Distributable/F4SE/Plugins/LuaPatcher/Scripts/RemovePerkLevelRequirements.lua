@@ -1,5 +1,77 @@
+local trainingPerks = {
+    [ 0x000D9784 ] = true,
+    [ 0x000D9785 ] = true,
+    [ 0x000D9786 ] = true,
+    [ 0x000D9787 ] = true,
+    [ 0x000D9788 ] = true,
+    [ 0x000D9789 ] = true,
+    [ 0x000D978A ] = true,
+    [ 0x000D978B ] = true,
+    [ 0x000D978C ] = true,
+    [ 0x000D978D ] = true,
+    [ 0x000D978E ] = true,
+    [ 0x000D978F ] = true,
+    [ 0x000D9790 ] = true,
+    [ 0x000D9791 ] = true,
+    [ 0x000D9792 ] = true,
+    [ 0x000D9793 ] = true,
+    [ 0x000D9794 ] = true,
+    [ 0x000D9795 ] = true,
+    [ 0x000D9796 ] = true,
+    [ 0x000D9797 ] = true,
+    [ 0x000D9798 ] = true,
+    [ 0x000D9799 ] = true,
+    [ 0x000D979A ] = true,
+    [ 0x000D979B ] = true,
+    [ 0x000D979C ] = true,
+    [ 0x000D979D ] = true,
+    [ 0x000D979E ] = true,
+    [ 0x000D979F ] = true,
+    [ 0x000D97A0 ] = true,
+    [ 0x000D97A1 ] = true,
+    [ 0x000D97A2 ] = true,
+    [ 0x000D97A3 ] = true,
+    [ 0x000D97A4 ] = true,
+    [ 0x000D97A5 ] = true,
+    [ 0x000D97A6 ] = true,
+    [ 0x0011C7C3 ] = true,
+    [ 0x0011C7C4 ] = true,
+    [ 0x0011C7C5 ] = true,
+    [ 0x0011C7C6 ] = true,
+    [ 0x0011C7C7 ] = true,
+    [ 0x0011C7C8 ] = true,
+    [ 0x0011C7C9 ] = true,
+    [ 0x0011C7CA ] = true,
+    [ 0x0011C7CB ] = true,
+    [ 0x0011C7CC ] = true,
+    [ 0x0011C7CD ] = true,
+    [ 0x0011C7CE ] = true,
+    [ 0x0011C7CF ] = true,
+    [ 0x0011C7D0 ] = true,
+    [ 0x0011C7D1 ] = true,
+    [ 0x0011C7D2 ] = true,
+    [ 0x0011C7D3 ] = true,
+    [ 0x0011C7D4 ] = true,
+    [ 0x0011C7D5 ] = true,
+    [ 0x0011C7D6 ] = true,
+    [ 0x0011C7D7 ] = true,
+    [ 0x0011C7D8 ] = true,
+    [ 0x0011C7D9 ] = true,
+    [ 0x0011C7DA ] = true,
+    [ 0x0011C7DB ] = true,
+    [ 0x0011C7DC ] = true,
+    [ 0x0011C7DD ] = true,
+    [ 0x0011C7DE ] = true,
+}
+
 patcher:registerCallback(function(formId)
-    if Form.GetType(formId) == PERK then
-		Perk.SetLevel(formId, 0)
+    if Form.GetType(formId) == PERK and Perk.IsHidden(formId) == false and Perk.IsPlayable(formId) == true and Perk.GetLevel(formId) == 0 and not trainingPerks[formId] then
+        local nextPerkId = Perk.GetNextPerk(formId)
+        local level = 2
+        while nextPerkId ~= formId and nextPerkId ~= 0 do
+            Perk.SetLevel(nextPerkId, level)
+            nextPerkId = Perk.GetNextPerk(nextPerkId)
+            level = level + 1
+        end
     end
 end)
