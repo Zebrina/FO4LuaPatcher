@@ -211,6 +211,16 @@ VIS.MISC.Collectible = {
     [ 0x0022CB6E ] = true,
     [ 0x0022CB6F ] = true,
     [ Game.GetFormFromFile("DLCNukaWorld.esm", 0x043A96) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x00266B) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x00266C) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x00266F) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x002670) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x002671) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x002674) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x002675) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x002676) ] = true,
+    [ Game.GetFormFromFile("RRTV_RobotModelKits.esp", 0x002677) ] = true,
+    [ Game.GetFormFromFile("SubmersiblePowerArmorRedux.esp", 0x0029BB) ] = true,
 }
 VIS.MISC.Crafting = {
     [ 0x00060EC0 ] = true,
@@ -582,6 +592,26 @@ VIS.WEAP = {}
 VIS.WEAP.Ammo = {
     [ 0x0010E689 ] = true,
 }
+VIS.WEAP.Device = {
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000800) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000805) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x00080A) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x00080F) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000814) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000819) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x00081E) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000823) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000828) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x00082D) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x00085A) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000862) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x00086F) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000877) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x00087E) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x000886) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x00101D) ] = true,
+    [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x005C33) ] = true,
+}
 VIS.WEAP.Signal = {
     [ 0x00056917 ] = true,
     [ 0x000589F2 ] = true,
@@ -589,6 +619,26 @@ VIS.WEAP.Signal = {
     [ 0x0012E2CA ] = true,
     [ 0x00174F8F ] = true,
     [ 0x0023CACB ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_100.esp", 0x001733) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_100.esp", 0x001738) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_100.esp", 0x001ED4) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_100.esp", 0x001ED5) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_100.esp", 0x001ED6) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_200.esp", 0x001733) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_200.esp", 0x001738) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_200.esp", 0x001ED4) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_200.esp", 0x001ED5) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_simple_200.esp", 0x001ED6) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_100.esp", 0x001733) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_100.esp", 0x001738) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_100.esp", 0x001ED4) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_100.esp", 0x001ED5) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_100.esp", 0x001ED6) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_200.esp", 0x001733) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_200.esp", 0x001738) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_200.esp", 0x001ED4) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_200.esp", 0x001ED5) ] = true,
+    [ Game.GetFormFromFile("GlowstickRedux_survival_200.esp", 0x001ED6) ] = true,
 }
 
 local function HasTag(formName)
@@ -720,22 +770,31 @@ patcher:registerCallback(function(formId)
         elseif formType == PERK then
             if VIS.PERK.Bobblehead[formId] == true then
                 Form.SetName(formId, "(Bobblehead) " .. formName)
+                Perk.SetHidden(formId, false)
             elseif VIS.PERK.Companion[formId] == true then
                 Form.SetName(formId, "(Companion) " .. formName)
+                Perk.SetHidden(formId, false)
             elseif VIS.PERK.FactionBOS[formId] == true then
                 Form.SetName(formId, "(Faction: BOS) " .. formName)
+                Perk.SetHidden(formId, false)
             elseif VIS.PERK.FactionRailroad[formId] == true then
                 Form.SetName(formId, "(Faction: Railroad) " .. formName)
+                Perk.SetHidden(formId, false)
             elseif VIS.PERK.Magazine[formId] == true then
                 Form.SetName(formId, "(Magazine) " .. formName)
+                Perk.SetHidden(formId, false)
             elseif VIS.PERK.Quest[formId] == true then
                 Form.SetName(formId, "(Quest) " .. formName)
+                Perk.SetHidden(formId, false)
             elseif VIS.PERK.Temp[formId] == true then
                 Form.SetName(formId, "(Temp) " .. formName)
+                Perk.SetHidden(formId, false)
             end
         elseif formType == WEAP then
             if VIS.WEAP.Ammo[formId] == true then
                 Form.SetName(formId, "(Ammo) " .. formName)
+            elseif VIS.WEAP.Device[formId] == true then
+                Form.SetName(formId, "(Device) " .. formName)
             elseif VIS.WEAP.Signal[formId] == true then
                 Form.SetName(formId, "(Signal) " .. formName)
             elseif Form.HasKeywordString(formId, "WeaponTypeGrenade") == true or
