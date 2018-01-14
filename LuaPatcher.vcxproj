@@ -87,6 +87,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\..;D:\Libraries\x64\lua-5.2.3\include;D:\Libraries\LuaCppInterface\LuaCppInterface</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>common/IPrefix.h</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
     </ClCompile>
     <PostBuildEvent>
       <Command>echo Copying DLL to distributable directory.
@@ -123,6 +124,7 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
       <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)\..;D:\Libraries\x64\lua-5.2.3\include;D:\Libraries\LuaCppInterface\LuaCppInterface</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>common/IPrefix.h</ForcedIncludeFiles>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -186,6 +188,7 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
     <ClCompile Include="LuaStatic.cpp" />
     <ClCompile Include="LuaTalkingActivator.cpp" />
     <ClCompile Include="LuaTerminal.cpp" />
+    <ClCompile Include="LuaUtility.cpp" />
     <ClCompile Include="LuaWeapon.cpp" />
     <ClCompile Include="LuaWeather.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -252,6 +255,7 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
     <ClInclude Include="LuaStatic.h" />
     <ClInclude Include="LuaTalkingActivator.h" />
     <ClInclude Include="LuaTerminal.h" />
+    <ClInclude Include="LuaUtility.h" />
     <ClInclude Include="LuaWeapon.h" />
     <ClInclude Include="LuaWeather.h" />
   </ItemGroup>

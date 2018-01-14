@@ -1,43 +1,34 @@
 #include "LuaMiscObject.h"
 
-#include "f4se/GameForms.h"
-#include "f4se/GameData.h"
-
 #include <luacppinterface.h>
 
-uint32_t LuaMiscObject::GetComponentCount(uint32_t formId) {
-	TESForm* form = LookupFormByID(formId);
-	if (form && form->GetFormType() == FormType::kFormType_MISC) {
-		TESObjectMISC* misc = static_cast<TESObjectMISC*>(form);
-		if (misc->components) {
-			return misc->components->count;
-		}
+#include "f4se/GameObjects.h"
+#include "f4se/GameRTTI.h"
+
+uint32_t LuaMiscObject::GetComponentCount(uint32_t thisFormId) {
+	TESObjectMISC* miscObject = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, TESObjectMISC);
+	if (miscObject && miscObject->components) {
+		return miscObject->components->count;
 	}
 	return 0;
 }
-uint32_t LuaMiscObject::GetComponents(uint32_t formId, LuaTable componentTableOut) {
-	TESForm* form = LookupFormByID(formId);
-	if (form && form->GetFormType() == FormType::kFormType_MISC) {
-		TESObjectMISC* misc = static_cast<TESObjectMISC*>(form);
-		if (misc->components) {
-			for (int i = 0; i < misc->components->count; ++i) {
-				componentTableOut.Set<uint32_t>(i + 1, (*misc->components)[i].component->formID);
-			}
-			return misc->components->count;
+uint32_t LuaMiscObject::GetComponents(uint32_t thisFormId, LuaTable componentTableOut) {
+	TESObjectMISC* miscObject = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, TESObjectMISC);
+	if (miscObject && miscObject->components) {
+		for (int i = 0; i < miscObject->components->count; ++i) {
+			componentTableOut.Set<uint32_t>(i + 1, (*miscObject->components)[i].component->formID);
 		}
+		return miscObject->components->count;
 	}
 	return 0;
 }
-uint32_t LuaMiscObject::GetComponentsEx(uint32_t formId, LuaTable componentTableOut) {
-	TESForm* form = LookupFormByID(formId);
-	if (form && form->GetFormType() == FormType::kFormType_MISC) {
-		TESObjectMISC* misc = static_cast<TESObjectMISC*>(form);
-		if (misc->components) {
-			for (int i = 0; i < misc->components->count; ++i) {
-				componentTableOut.Set<uint32_t>(i + 1, (*misc->components)[i].component->formID);
-			}
-			return misc->components->count;
+uint32_t LuaMiscObject::GetComponentsEx(uint32_t thisFormId, LuaTable componentTableOut) {
+	TESObjectMISC* miscObject = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, TESObjectMISC);
+	if (miscObject && miscObject->components) {
+		for (int i = 0; i < miscObject->components->count; ++i) {
+			componentTableOut.Set<uint32_t>(i + 1, (*miscObject->components)[i].component->formID);
 		}
+		return miscObject->components->count;
 	}
 	return 0;
 }

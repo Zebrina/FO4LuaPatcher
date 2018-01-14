@@ -407,7 +407,5 @@ void ProcessLuaScripts() {
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrOMOD);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrINNR);
 
-	LuaForm::ClearCaches();
-
 	LUA_DEBUG_PRINT("Lua Patcher finished.");
 }

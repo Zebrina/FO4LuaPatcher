@@ -149,6 +149,9 @@
     <ClCompile Include="LuaActorBase.cpp">
       <Filter>Lua\ScriptObjects</Filter>
     </ClCompile>
+    <ClCompile Include="LuaUtility.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Exports.def" />
@@ -308,6 +311,9 @@
     </ClInclude>
     <ClInclude Include="LuaActorBase.h">
       <Filter>Lua\ScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaUtility.h">
+      <Filter>Lua</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

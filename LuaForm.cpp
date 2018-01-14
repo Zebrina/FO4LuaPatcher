@@ -2,48 +2,20 @@
 
 #include <unordered_map>
 
-#include "f4se/GameForms.h"
-#include "f4se/GameData.h"
-#include "f4se/GameRTTI.h"
-
 #include <luacppinterface.h>
 
-struct BSFixedStringHash {
-	std::size_t operator()(const BSFixedString& str) const noexcept {
-		return (std::size_t)str.data;
-	}
-};
-typedef std::unordered_map<BSFixedString, BGSKeyword*, BSFixedStringHash> KeywordCache;
-KeywordCache* keywordCache = new KeywordCache();
+#include "LuaUtility.h"
+#include "f4se/GameRTTI.h"
 
-BGSKeyword* GetKeywordByName(BSFixedString keyword) {
-	auto found = keywordCache->find(keyword);
-	if (found == keywordCache->end()) {
-		DataHandler* dataHandler = *g_dataHandler;
-		for (SInt32 i = 0; i < dataHandler->arrKYWD.count; ++i) {
-			BGSKeyword* keywordForm = dataHandler->arrKYWD[i];
-			if (keywordForm->GetEditorID() == keyword) {
-				keywordCache->insert({ keyword, keywordForm });
-				return keywordForm;
-			}
-		}
-		// Not found. Add nullptr to keyword cache.
-		_MESSAGE("GetKeywordByName: Keyword %s not found.", keyword.c_str());
-		keywordCache->insert({ keyword, nullptr });
-		return nullptr;
-	}
-	return found->second;
-}
-
-uint8_t LuaForm::GetType(uint32_t formId) {
-	TESForm* form = LookupFormByID(formId);
+uint8_t LuaForm::GetType(uint32_t thisFormId) {
+	TESForm* form = LookupFormByID(thisFormId);
 	if (form) {
 		return form->GetFormType();
 	}
 	return TESForm::kTypeID;
 }
-bool LuaForm::IsPlayable(uint32_t formId) {
-	TESForm* form = LookupFormByID(formId);
+bool LuaForm::IsPlayable(uint32_t thisFormId) {
+	TESForm* form = LookupFormByID(thisFormId);
 	if (form) {
 		enum {
 			kFlag_NonPlayable = 1 << 2,
@@ -52,8 +24,8 @@ bool LuaForm::IsPlayable(uint32_t formId) {
 	}
 	return false;
 }
-const char* LuaForm::GetName(uint32_t formId) {
-	TESForm* form = LookupFormByID(formId);
+const char* LuaForm::GetName(uint32_t thisFormId) {
+	TESForm* form = LookupFormByID(thisFormId);
 	if (form) {
 		const char* fullName = form->GetFullName();
 		if (fullName) {
@@ -62,18 +34,18 @@ const char* LuaForm::GetName(uint32_t formId) {
 	}
 	return "";
 }
-void LuaForm::SetName(uint32_t formId, const char* newName) {
-	TESFullName* fullName = DYNAMIC_CAST(LookupFormByID(formId), TESForm, TESFullName);
+void LuaForm::SetName(uint32_t thisFormId, const char* newName) {
+	TESFullName* fullName = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, TESFullName);
 	if (fullName) {
-		_MESSAGE("0x%.8x.SetName: %s -> %s", formId, fullName->name.c_str(), newName);
+		_MESSAGE("0x%.8x.SetName: %s -> %s", thisFormId, fullName->name.c_str(), newName);
 		fullName->name = BSFixedString(newName);
 	}
 	else {
-		_MESSAGE("0x%.8x.SetName: Fail! Does not have TESFullName.  %s", formId, newName);
+		_MESSAGE("0x%.8x.SetName: Fail! Does not have TESFullName.  %s", thisFormId, newName);
 	}
 }
-bool LuaForm::HasKeyword(uint32_t formId, uint32_t keywordFormId) {
-	BGSKeywordForm* keywords{ DYNAMIC_CAST(LookupFormByID(formId), TESForm, BGSKeywordForm) };
+bool LuaForm::HasKeyword(uint32_t thisFormId, uint32_t keywordFormId) {
+	BGSKeywordForm* keywords = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, BGSKeywordForm);
 	if (keywords) {
 		for (int i{ 0 }; i < keywords->numKeywords; ++i) {
 			if (keywords->keywords[i]->formID == keywordFormId) {
@@ -83,10 +55,10 @@ bool LuaForm::HasKeyword(uint32_t formId, uint32_t keywordFormId) {
 	}
 	return false;
 }
-bool LuaForm::HasKeywordString(uint32_t formId, const char* keyword) {
-	BGSKeyword* keywordForm = GetKeywordByName(BSFixedString(keyword));
+bool LuaForm::HasKeywordString(uint32_t thisFormId, const char* keyword) {
+	BGSKeyword* keywordForm = GetKeywordByName(keyword);
 	if (keywordForm) {
-		BGSKeywordForm* keywords{ DYNAMIC_CAST(LookupFormByID(formId), TESForm, BGSKeywordForm) };
+		BGSKeywordForm* keywords = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, BGSKeywordForm);
 		if (keywords) {
 			for (int i{ 0 }; i < keywords->numKeywords; ++i) {
 				if (keywords->keywords[i] == keywordForm) {
@@ -111,8 +83,4 @@ void LuaForm::RegisterFunctions(Lua* lua, LuaTable* global) {
 	global->Set("Form", table);
 
 	_MESSAGE("Registered Form functions.");
-}
-void LuaForm::ClearCaches() {
-	delete keywordCache;
-	keywordCache = nullptr;
 }

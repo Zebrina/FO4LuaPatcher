@@ -10,7 +10,9 @@ namespace LuaPerk {
 	uint8_t GetNumRanks(uint32_t thisFormId);
 	const char* GetSWFPath(uint32_t thisFormId);
 	bool IsHidden(uint32_t thisFormId);
+	void SetHidden(uint32_t thisFormId, bool isHidden);
 	bool IsPlayable(uint32_t thisFormId);
+	void SetPlayable(uint32_t thisFormId, bool isPlayable);
 
 	void RegisterFunctions(Lua* lua, LuaTable* global);
 }
