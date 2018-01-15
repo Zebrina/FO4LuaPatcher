@@ -5,6 +5,7 @@
 #include "LuaScriptProcessor.h"
 
 IDebugLog gLog("LuaPatcher.log");
+//IDebugLog gLog("Data\\F4SE\\Plugins\\LuaPatcher.log");
 
 struct {
 	PluginHandle pluginHandle = kPluginHandle_Invalid;
@@ -23,7 +24,7 @@ void HandleF4SEMessage(F4SEMessagingInterface::Message* msg) {
 
 extern "C" {
 	bool F4SEPlugin_Query(const F4SEInterface* f4se, PluginInfo* info) {
-		_MESSAGE("F4SEPlugin_Query begin");
+		//_MESSAGE("F4SEPlugin_Query begin");
 
 		// populate info structure
 		info->infoVersion = PluginInfo::kInfoVersion;
@@ -57,18 +58,18 @@ extern "C" {
 		// ### do not do anything else in this callback
 		// ### only fill out PluginInfo and return true/false
 
-		_MESSAGE("F4SEPlugin_Query end");
+		//_MESSAGE("F4SEPlugin_Query end");
 
 		// supported runtime version
 		return true;
 	}
 
 	bool F4SEPlugin_Load(const F4SEInterface * f4se) {
-		_MESSAGE("F4SEPlugin_Load begin");
+		//_MESSAGE("F4SEPlugin_Load begin");
 
 		global.messaging->RegisterListener(global.pluginHandle, "F4SE", HandleF4SEMessage);
 
-		_MESSAGE("F4SEPlugin_Load end");
+		//_MESSAGE("F4SEPlugin_Load end");
 
 		return true;
 	}
