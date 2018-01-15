@@ -2,9 +2,9 @@
 
 #include <luacppinterface.h>
 
+#include "LuaF4SEUtility.h"
 #include "f4se/GameObjects.h"
 #include "f4se/GameRTTI.h"
-#include "LuaUtility.h"
 
 uint32_t LuaMiscObject::GetComponentCount(uint32_t thisFormId) {
 	TESObjectMISC* miscObject = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, TESObjectMISC);

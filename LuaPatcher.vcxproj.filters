@@ -149,7 +149,7 @@
     <ClCompile Include="LuaActorBase.cpp">
       <Filter>Lua\ScriptObjects</Filter>
     </ClCompile>
-    <ClCompile Include="LuaUtility.cpp">
+    <ClCompile Include="LuaF4SEUtility.cpp">
       <Filter>Lua</Filter>
     </ClCompile>
   </ItemGroup>
@@ -312,7 +312,7 @@
     <ClInclude Include="LuaActorBase.h">
       <Filter>Lua\ScriptObjects</Filter>
     </ClInclude>
-    <ClInclude Include="LuaUtility.h">
+    <ClInclude Include="LuaF4SEUtility.h">
       <Filter>Lua</Filter>
     </ClInclude>
   </ItemGroup>

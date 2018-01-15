@@ -2,7 +2,7 @@
 
 #include <luacppinterface.h>
 
-#include "LuaUtility.h"
+#include "LuaF4SEUtility.h"
 
 void LuaActorBase::RegisterFunctions(Lua* lua, LuaTable* global) {
 	LuaTable table = lua->CreateTable();

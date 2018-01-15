@@ -4,7 +4,7 @@
 
 #include <luacppinterface.h>
 
-#include "LuaUtility.h"
+#include "LuaF4SEUtility.h"
 #include "f4se/GameRTTI.h"
 
 uint8_t LuaForm::GetType(uint32_t thisFormId) {
@@ -56,7 +56,7 @@ bool LuaForm::HasKeyword(uint32_t thisFormId, uint32_t keywordFormId) {
 	return false;
 }
 bool LuaForm::HasKeywordString(uint32_t thisFormId, const char* keyword) {
-	BGSKeyword* keywordForm = GetKeywordByName(keyword);
+	BGSKeyword* keywordForm = g_lua->GetKeywordByName(keyword);
 	if (keywordForm) {
 		BGSKeywordForm* keywords = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, BGSKeywordForm);
 		if (keywords) {

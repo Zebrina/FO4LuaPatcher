@@ -2,7 +2,7 @@
 
 #include <luacppinterface.h>
 
-#include "LuaUtility.h"
+#include "LuaF4SEUtility.h"
 #include "f4se/GameRTTI.h"
 
 uint8_t LuaPerk::GetLevel(uint32_t thisFormId) {
