@@ -5,8 +5,8 @@ class LuaTable;
 
 namespace LuaMiscObject {
 	uint32_t GetComponentCount(uint32_t thisFormId);
-	uint32_t GetComponents(uint32_t thisFormId, LuaTable componentTableOut);
-	uint32_t GetComponentsEx(uint32_t thisFormId, LuaTable componentTableOut);
+	LuaTable GetComponents(uint32_t thisFormId);
+	LuaTable GetComponentsEx(uint32_t thisFormId);
 
 	void RegisterFunctions(Lua* lua, LuaTable* global);
 }

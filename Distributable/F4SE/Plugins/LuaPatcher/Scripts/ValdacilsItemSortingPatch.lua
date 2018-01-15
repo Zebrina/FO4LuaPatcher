@@ -651,8 +651,8 @@ end
 
 local function MakeComponentsTag(formId)
     local tag = ""
-    local components = {}
-    local componentCount = MiscObject.GetComponents(formId, components)
+    local components = MiscObject.GetComponents(formId)
+    local componentCount = #components
     if componentCount > 0 then
         tag = "{{{" .. Form.GetName(components[1])
         for i = 2, componentCount do

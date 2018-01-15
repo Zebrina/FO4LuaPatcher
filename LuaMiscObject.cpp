@@ -4,6 +4,7 @@
 
 #include "f4se/GameObjects.h"
 #include "f4se/GameRTTI.h"
+#include "LuaUtility.h"
 
 uint32_t LuaMiscObject::GetComponentCount(uint32_t thisFormId) {
 	TESObjectMISC* miscObject = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, TESObjectMISC);
@@ -12,33 +13,35 @@ uint32_t LuaMiscObject::GetComponentCount(uint32_t thisFormId) {
 	}
 	return 0;
 }
-uint32_t LuaMiscObject::GetComponents(uint32_t thisFormId, LuaTable componentTableOut) {
+LuaTable LuaMiscObject::GetComponents(uint32_t thisFormId) {
+	LuaTable componentTable = g_lua->getLua()->CreateTable();
 	TESObjectMISC* miscObject = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, TESObjectMISC);
 	if (miscObject && miscObject->components) {
 		for (int i = 0; i < miscObject->components->count; ++i) {
-			componentTableOut.Set<uint32_t>(i + 1, (*miscObject->components)[i].component->formID);
+			componentTable.Set<uint32_t>(i + 1, (*miscObject->components)[i].component->formID);
 		}
-		return miscObject->components->count;
+		return componentTable;
 	}
-	return 0;
+	return componentTable;
 }
-uint32_t LuaMiscObject::GetComponentsEx(uint32_t thisFormId, LuaTable componentTableOut) {
+LuaTable LuaMiscObject::GetComponentsEx(uint32_t thisFormId) {
+	LuaTable componentTable = g_lua->getLua()->CreateTable();
 	TESObjectMISC* miscObject = DYNAMIC_CAST(LookupFormByID(thisFormId), TESForm, TESObjectMISC);
 	if (miscObject && miscObject->components) {
 		for (int i = 0; i < miscObject->components->count; ++i) {
-			componentTableOut.Set<uint32_t>(i + 1, (*miscObject->components)[i].component->formID);
+			componentTable.Set<uint32_t>(i + 1, (*miscObject->components)[i].component->formID);
 		}
-		return miscObject->components->count;
+		return componentTable;
 	}
-	return 0;
+	return componentTable;
 }
 
 void LuaMiscObject::RegisterFunctions(Lua* lua, LuaTable* global) {
 	LuaTable table = lua->CreateTable();
 
 	table.Set("GetComponentCount", lua->CreateFunction<uint32_t(uint32_t)>(LuaMiscObject::GetComponentCount));
-	table.Set("GetComponents", lua->CreateFunction<uint32_t(uint32_t, LuaTable)>(LuaMiscObject::GetComponents));
-	//table.Set("GetComponentsEx", lua->CreateFunction<uint32_t(uint32_t, LuaTable)>(LuaMiscObject::GetComponentsEx));
+	table.Set("GetComponents", lua->CreateFunction<LuaTable(uint32_t)>(LuaMiscObject::GetComponents));
+	//table.Set("GetComponentsEx", lua->CreateFunction<LuaTable(uint32_t)>(LuaMiscObject::GetComponentsEx));
 
 	global->Set("MiscObject", table);
 
