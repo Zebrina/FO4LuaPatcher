@@ -4,13 +4,14 @@
 #include <sstream>
 
 #include <Windows.h>
+#include <luacppinterface.h>
 
 #include "f4se/GameAPI.h"
 #include "f4se/GameForms.h"
 #include "f4se/GameData.h"
 #include "f4se/GameTypes.h"
 
-#include <luacppinterface.h>
+#include "LuaF4SEUtility.h"
 
 #include "LuaActivator.h"
 #include "LuaActorBase.h"
@@ -143,6 +144,7 @@ void ProcessLuaScripts() {
 
 	Lua lua;
 	LuaTable global = lua.GetGlobalEnvironment();
+	g_lua = new LuaF4SEUtility(&lua, &global);
 
 	lua.LoadStandardLibraries();
 	_MESSAGE("Loaded standard libraries.");
@@ -372,12 +374,31 @@ void ProcessLuaScripts() {
 
 	DataHandler* dataHandler = *g_dataHandler;
 
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrKYWD);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLCRT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrAACT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrTRNS);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCMPO);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrTXST);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMICN);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrGLOB);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrDMGT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCLAS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrFACT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrHDPT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrEYES);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrRACE);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSOUN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrASPC);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSKIL);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMGEF);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSCPT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLTEX);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrENCH);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSPEL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSCRL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrACTI);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrTACT);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrARMO);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrBOOK);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCONT);
@@ -386,6 +407,10 @@ void ProcessLuaScripts() {
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLIGH);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMISC);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSTAT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSCOL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMSTT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrGRAS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrTREE);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrFLOR);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrFURN);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrWEAP);
@@ -394,18 +419,118 @@ void ProcessLuaScripts() {
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLVLN);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrKEYM);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrALCH);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrIDLM);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrNOTE);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPROJ);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrHAZD);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrBNDS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSLGM);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrTERM);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLVLI);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrWTHR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCLMT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSPGD);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrRFCT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrREGN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrNAVI);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCELL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrREFR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrACHR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPMIS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPARW);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPGRE);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPBEA);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPFLA);
+	//ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPCON);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPBAR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPHZD);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrWRLD);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLAND);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrNAVM);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrTLOD);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrDIAL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrINFO);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrQUST);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrIDLE);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPACK);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCSTY);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLSCR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLVSP);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrANIO);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrWATR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrEFSH);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrTOFT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrEXPL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrDEBR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrIMGS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrIMAD);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrFLST);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPERK);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrBPTD);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrADDN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrAVIF);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCAMS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCPTH);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrVTYP);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMATT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrIPCT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrIPDS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrARMA);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrECZN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLCTN);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMESG);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrRGDL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrDOBJ);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrDFOB);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLGTM);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMUSC);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrFSTP);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrFSTS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSMBN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSMQN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSMEN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrDLBR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMUST);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrDLVW);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrWOOP);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSHOU);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrEQUP);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrRELA);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSCEN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrASTP);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrOTFT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrARTO);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMATO);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMOVT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSNDR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrDUAL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSNCT);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSOPM);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCOLL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCLFM);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrREVB);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrPKIN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrRFGP);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrAMDL);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLAYR);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrCOBJ);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrOMOD);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrMSWP);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrZOOM);
 	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrINNR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrKSSM);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrAECH);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSCCO);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrAORU);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSCSN);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrSTAG);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrNOCM);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLENS);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrLSPR);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrGDRY);
+	ForEachFormInvokeCallbacks(&lua, &global, &callbacks, dataHandler->arrOVIS);
+
+	delete g_lua;
 
 	LUA_DEBUG_PRINT("Lua Patcher finished.");
 }
