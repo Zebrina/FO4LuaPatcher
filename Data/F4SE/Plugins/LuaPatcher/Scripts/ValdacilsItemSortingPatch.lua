@@ -261,7 +261,6 @@ VIS.MISC.Note = {
 }
 VIS.MISC.Quest = {
     [ 0x0001ACD4 ] = true,
-    [ 0x0001D95C ] = true,
     [ 0x00022264 ] = true,
     [ 0x00022266 ] = true,
     [ 0x00029167 ] = true,
@@ -458,9 +457,11 @@ VIS.NOTE.Quest = {
 }
 VIS.NOTE.Settings = {
     [ Game.GetFormFromFile("AkaInvisibleFurniture.esp", 0x00452E) ] = true,
+    [ Game.GetFormFromFile("Better Locational Damage.esp", 0x020CF4) ] = true,
     [ Game.GetFormFromFile("DeployableTurretsPack.esp", 0x0026FF) ] = true,
     [ Game.GetFormFromFile("DynamicInteriorFogRemoval.esp", 0x001733) ] = true,
     [ Game.GetFormFromFile("Marmo1233 - Immersive Settlers.esp", 0x00B001) ] = true,
+    [ Game.GetFormFromFile("SettlementMenuManager.esp", 0x002665) ] = true,
     [ Game.GetFormFromFile("th1nkEyebot.esp", 0x048BEE) ] = true,
     [ Game.GetFormFromFile("TrueStormsFO4.esm", 0x004BE6) ] = true,
     [ Game.GetFormFromFile("TrueStormsFO4.esm", 0x045F3D) ] = true,
@@ -663,11 +664,9 @@ local function MakeComponentsTag(formId)
     return tag
 end
 
-patcher:registerCallback(function(formId)
+patcher:registerCallback(function(formId, formType)
     local formName = Form.GetName(formId)
     if Form.IsPlayable(formId) == true and string.len(formName) > 0 and not HasTag(formName) == true then
-        local formType = Form.GetType(formId)
-
         if formType == ALCH then
             if VIS.ALCH.Aid[formId] == true then
                 Form.SetName(formId, "(Aid) " .. formName)

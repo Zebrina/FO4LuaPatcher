@@ -64,8 +64,8 @@ local trainingPerks = {
     [ 0x0011C7DE ] = true,
 }
 
-patcher:registerCallback(function(formId)
-    if Form.GetType(formId) == PERK and Perk.IsHidden(formId) == false and Perk.IsPlayable(formId) == true and Perk.GetLevel(formId) == 0 and not trainingPerks[formId] then
+patcher:registerCallback(function(formId, formType)
+    if formType == PERK and Perk.IsHidden(formId) == false and Perk.IsPlayable(formId) == true and Perk.GetLevel(formId) == 0 and not trainingPerks[formId] then
         local nextPerkId = Perk.GetNextPerk(formId)
         local level = 2
         while nextPerkId ~= formId and nextPerkId ~= 0 do
