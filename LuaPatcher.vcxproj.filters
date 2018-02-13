@@ -2,318 +2,319 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="LuaScriptProcessor.cpp">
-      <Filter>Lua</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaForm.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaGame.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaMiscObject.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaPerk.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
+    <ClCompile Include="LuaF4SEUtility.cpp" />
+    <ClCompile Include="LuaScriptProcessor.cpp" />
     <ClCompile Include="LuaActivator.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaActorValue.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaAmmo.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaArmor.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaBook.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaClass.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaCombatStyle.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaComponent.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaConstructibleObject.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaContainer.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaDoor.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaEnchantment.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaEncounterZone.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaEquipSlot.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaExplosion.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaFaction.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaFlora.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaFurniture.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaGlobalVariable.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaHolotape.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaIngredient.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaKey.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaKeyword.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaLeveledActor.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaLeveledItem.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaLeveledSpell.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaLocation.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaMagicEffect.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaMessage.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaMovableStatic.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaObjectMod.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaOutfit.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaPackage.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaPotion.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaQuest.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaRace.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaSoulGem.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaStatic.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaTalkingActivator.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaTerminal.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaWeapon.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaWeather.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaSpell.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
+      <Filter>LuaScriptObjects</Filter>
     </ClCompile>
     <ClCompile Include="LuaActorBase.cpp">
-      <Filter>Lua\ScriptObjects</Filter>
+      <Filter>LuaScriptObjects</Filter>
     </ClCompile>
-    <ClCompile Include="LuaF4SEUtility.cpp">
-      <Filter>Lua</Filter>
+    <ClCompile Include="LuaActorValue.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaAmmo.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaArmor.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaBook.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaCell.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaClass.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaCombatStyle.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaComponent.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaConstructibleObject.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaContainer.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaDoor.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaEnchantment.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaEncounterZone.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaEquipSlot.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaExplosion.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaFaction.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaFlora.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaForm.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaFurniture.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaGame.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaGlobalVariable.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaHolotape.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaIngredient.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaKey.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaKeyword.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaLeveledActor.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaLeveledItem.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaLeveledSpell.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaLocation.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaMagicEffect.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaMessage.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaMiscObject.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaMovableStatic.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaObjectMod.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaObjectReference.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaOutfit.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaPackage.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaPerk.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaPotion.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaQuest.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaRace.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaSoulGem.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaSpell.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaStatic.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaTalkingActivator.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaTerminal.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaWeapon.cpp">
+      <Filter>LuaScriptObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaWeather.cpp">
+      <Filter>LuaScriptObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Exports.def" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Lua">
+    <Filter Include="LuaScriptObjects">
       <UniqueIdentifier>{8ddfc5c1-85aa-444d-a8d1-29b6b07b1488}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lua\ScriptObjects">
-      <UniqueIdentifier>{04169664-2811-4729-b0d1-0af13f9e8f99}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LuaScriptProcessor.h">
-      <Filter>Lua</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaForm.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaGame.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaMiscObject.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaPerk.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
+    <ClInclude Include="LuaF4SEUtility.h" />
+    <ClInclude Include="LuaScriptProcessor.h" />
     <ClInclude Include="LuaActivator.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaActorValue.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaAmmo.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaArmor.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaBook.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaClass.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaCombatStyle.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaComponent.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaConstructibleObject.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaContainer.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaDoor.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaEnchantment.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaEncounterZone.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaEquipSlot.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaExplosion.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaFaction.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaFlora.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaFurniture.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaGlobalVariable.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaHolotape.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaIngredient.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaKey.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaKeyword.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaLeveledActor.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaLeveledItem.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaLeveledSpell.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaLocation.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaMagicEffect.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaMessage.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaMovableStatic.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaObjectMod.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaOutfit.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaPackage.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaPotion.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaQuest.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaRace.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaSoulGem.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaStatic.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaTalkingActivator.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaTerminal.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaWeapon.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaWeather.h">
-      <Filter>Lua\ScriptObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaSpell.h">
-      <Filter>Lua\ScriptObjects</Filter>
+      <Filter>LuaScriptObjects</Filter>
     </ClInclude>
     <ClInclude Include="LuaActorBase.h">
-      <Filter>Lua\ScriptObjects</Filter>
+      <Filter>LuaScriptObjects</Filter>
     </ClInclude>
-    <ClInclude Include="LuaF4SEUtility.h">
-      <Filter>Lua</Filter>
+    <ClInclude Include="LuaActorValue.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaAmmo.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaArmor.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaBook.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaCell.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaClass.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaCombatStyle.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaComponent.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaConstructibleObject.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaContainer.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaDoor.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaEnchantment.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaEncounterZone.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaEquipSlot.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaWeather.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaExplosion.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaFaction.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaFlora.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaForm.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaFurniture.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaGame.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaGlobalVariable.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaHolotape.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaIngredient.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaKey.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaKeyword.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaLeveledActor.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaLeveledItem.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaLeveledSpell.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaLocation.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaMagicEffect.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaMessage.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaMiscObject.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaMovableStatic.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaObjectMod.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaObjectReference.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaOutfit.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaPackage.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaPerk.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaPotion.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaQuest.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaRace.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaSoulGem.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaSpell.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaStatic.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaTalkingActivator.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaTerminal.h">
+      <Filter>LuaScriptObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaWeapon.h">
+      <Filter>LuaScriptObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

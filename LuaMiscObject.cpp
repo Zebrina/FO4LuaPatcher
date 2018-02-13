@@ -39,9 +39,9 @@ LuaTable LuaMiscObject::GetComponentsEx(uint32_t thisFormId) {
 void LuaMiscObject::RegisterFunctions(Lua* lua, LuaTable* global) {
 	LuaTable table = lua->CreateTable();
 
-	table.Set("GetComponentCount", lua->CreateFunction<uint32_t(uint32_t)>(LuaMiscObject::GetComponentCount));
-	table.Set("GetComponents", lua->CreateFunction<LuaTable(uint32_t)>(LuaMiscObject::GetComponents));
-	//table.Set("GetComponentsEx", lua->CreateFunction<LuaTable(uint32_t)>(LuaMiscObject::GetComponentsEx));
+	table.Set("GetComponentCount", lua->CreateFunction<uint32_t(uint32_t)>(GetComponentCount));
+	table.Set("GetComponents", lua->CreateFunction<LuaTable(uint32_t)>(GetComponents));
+	//table.Set("GetComponentsEx", lua->CreateFunction<LuaTable(uint32_t)>(GetComponentsEx));
 
 	global->Set("MiscObject", table);
 

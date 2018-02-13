@@ -90,16 +90,18 @@
       <DisableSpecificWarnings>4244</DisableSpecificWarnings>
     </ClCompile>
     <PostBuildEvent>
-      <Command>echo Copying DLL to distributable directory.
-xcopy "$(TargetPath)" "$(ProjectDir)Distributable\F4SE\Plugins\$(TargetName)$(TargetExt)" /Y
-echo Copying distributable directory to Fallout 4 data directory.
-xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\Data\" /Y/S</Command>
+      <Command>xcopy "$(TargetPath)" "$(ProjectDir)Data\F4SE\Plugins\" /Y</Command>
+      <Message>Copying DLL to data directory.</Message>
     </PostBuildEvent>
     <Link>
       <ModuleDefinitionFile>Exports.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>D:\Libraries\x64\lua-5.2.3;D:\Libraries\LuaCppInterface\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>lua52.lib;LuaCppInterface.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>mklink /J "$(LOCALAPPDATA)\ModOrganizer\Fallout 4\mods\$(SolutionName)_$(ProjectName)\" "$(ProjectDir)Data\"</Command>
+      <Message>Setting up link to Mod Organizer mod directory.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -134,11 +136,13 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
       <AdditionalDependencies>lua52.lib;LuaCppInterface.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>echo Copying DLL to distributable directory.
-xcopy "$(TargetPath)" "$(ProjectDir)Distributable\F4SE\Plugins\$(TargetName)$(TargetExt)" /Y
-echo Copying distributable directory to Fallout 4 data directory.
-xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\Data\" /Y/S</Command>
+      <Command>xcopy "$(TargetPath)" "$(ProjectDir)Data\F4SE\Plugins\" /Y</Command>
+      <Message>Copying DLL to data directory.</Message>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>mklink /J "$(LOCALAPPDATA)\ModOrganizer\Fallout 4\mods\$(SolutionName)_$(ProjectName)\" "$(ProjectDir)Data\"</Command>
+      <Message>Setting up link to Mod Organizer mod directory.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="LuaActivator.cpp" />
@@ -147,6 +151,7 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
     <ClCompile Include="LuaAmmo.cpp" />
     <ClCompile Include="LuaArmor.cpp" />
     <ClCompile Include="LuaBook.cpp" />
+    <ClCompile Include="LuaCell.cpp" />
     <ClCompile Include="LuaClass.cpp" />
     <ClCompile Include="LuaCombatStyle.cpp" />
     <ClCompile Include="LuaComponent.cpp" />
@@ -176,6 +181,7 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
     <ClCompile Include="LuaMiscObject.cpp" />
     <ClCompile Include="LuaMovableStatic.cpp" />
     <ClCompile Include="LuaObjectMod.cpp" />
+    <ClCompile Include="LuaObjectReference.cpp" />
     <ClCompile Include="LuaOutfit.cpp" />
     <ClCompile Include="LuaPackage.cpp" />
     <ClCompile Include="LuaPerk.cpp" />
@@ -214,6 +220,7 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
     <ClInclude Include="LuaAmmo.h" />
     <ClInclude Include="LuaArmor.h" />
     <ClInclude Include="LuaBook.h" />
+    <ClInclude Include="LuaCell.h" />
     <ClInclude Include="LuaClass.h" />
     <ClInclude Include="LuaCombatStyle.h" />
     <ClInclude Include="LuaComponent.h" />
@@ -243,6 +250,7 @@ xcopy "$(ProjectDir)Distributable\*" "C:\Games\Steam\SteamApps\Common\Fallout 4\
     <ClInclude Include="LuaMiscObject.h" />
     <ClInclude Include="LuaMovableStatic.h" />
     <ClInclude Include="LuaObjectMod.h" />
+    <ClInclude Include="LuaObjectReference.h" />
     <ClInclude Include="LuaOutfit.h" />
     <ClInclude Include="LuaPackage.h" />
     <ClInclude Include="LuaPerk.h" />
